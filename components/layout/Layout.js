@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Global, css } from '@emotion/core';
 import Header from './Header';
 import Head from  'next/head';
+import Link from 'next/link';
 
 const Layout = props => {
     return (
@@ -11,14 +12,15 @@ const Layout = props => {
                     :root{
                         --grey: #3d3d3d;
                         --grey2: #6f6f6f;
+                        --grey3: #e1e1e1;
                         --orange: #da553f;
                     }
                     html{
-                        font-size: 62,5%;
-                        bos-sizing: border-box;
+                        font-size: 62.5%;
+                        box-sizing: border-box;
                     }
                     *, *:before, *:after{
-                        box-sizing: ingerit;                        
+                        box-sizing: ingerit;                                             
                     }
                     body{
                         font-size: 1rem;
@@ -52,7 +54,7 @@ const Layout = props => {
                 <title>Product Hunt Firebase-Next.js</title>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
                 <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet" />
-                <link href="/static/css/app.css" rel="stylesheet" />
+                <link href="/static/css/app.css" rel="stylesheet" />                
             </Head>
 
             <Header />
