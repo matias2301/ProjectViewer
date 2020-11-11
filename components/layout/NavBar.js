@@ -21,8 +21,8 @@ const NavBar = () => {
     return (
         <Nav>
             <Link href="/">Index</Link>
-            <Link href="/">Most Popular</Link>
-            <Link href="/">New Product</Link>
+            <Link href="/popular">Most Popular</Link>
+            <Link href="/newProduct">New Product</Link>
         </Nav>
     )
 }

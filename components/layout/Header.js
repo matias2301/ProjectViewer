@@ -8,7 +8,7 @@ import CustomButtom from '../ui/CustomButtom';
 
 const ContenedorHeader = styled.div`
     max-width: 1200px;
-    width: 95px;
+    width: 95%;
     margin: 0 auto;
     @media (min-width: 768px){
         display: flex;
@@ -27,7 +27,7 @@ const Logo = styled.p`
 
 const Header = () => {
 
-    const user = true;
+    const user = false;
 
     return (
         <header
@@ -67,19 +67,19 @@ const Header = () => {
                             >Admin Panel</p>
         
                             <CustomButtom
-                                bgColor={true}
+                                bgColor="true"
                             >Close Session</CustomButtom>
                         </>
                     ) : (
                         <>
-                            <Link href="/">
+                            <Link href="/login">
                                 <CustomButtom
-                                    bgColor={true}
+                                    bgColor="true"
                                 >Login</CustomButtom>
                             </Link>
-                            <Link href="/">
+                            <Link href="/signUp">
                                 <CustomButtom
-                                    bgColor={true}
+                                    bgColor="true"
                                 >Sing Up</CustomButtom>
                             </Link>
                          </>
