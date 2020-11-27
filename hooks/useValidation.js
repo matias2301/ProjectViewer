@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
-const useValidation = ( initialState, validate, fn ) => {
+const useValidation = ( initialState, initialFocus, validate, fn ) => {
 
     const [values, setValues] = useState(initialState);
     const [errors, setErrors] = useState({});
     const [submit, setSubmit] = useState(false);
-    const [focus, setFocus] = useState({
-        name: false,
-        email: false,
-        password: false
-      });
+    const [focus, setFocus] = useState(initialFocus);
 
     useEffect(() => {
         if( submit ){
@@ -30,26 +26,21 @@ const useValidation = ( initialState, validate, fn ) => {
     
     const handleSubmit = e => {
         e.preventDefault();
-        setFocus({
-            name: false,
-            email: false,
-            password: false,            
-        });
+        setFocus(initialFocus);
         const validation = validate(values);
         setErrors(validation);
         setSubmit(true);
     }
 
     const handleBlur = () => {   
+        setFocus(initialFocus);
         const validation = validate(values);
         setErrors(validation);       
     }
 
     const handleFocus = (e) => {        
         setFocus({
-            name: false,
-            email: false,
-            password: false,
+            ...focus,            
             [e.target.name]: true
         });        
     }

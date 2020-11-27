@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import { css } from '@emotion/core';
-// import Router from 'next/router';
+import Router from 'next/router';
 import Layout from '../components/layout/Layout';
 import { Form, Field, InputSubmit, Error } from '../components/ui/FormStyles';
 
-// import firebase from '../firebase';
+import firebase from '../firebase';
 
 // // validaciones
 import useValidation from '../hooks/useValidation';
@@ -15,25 +15,29 @@ const STATE_INITIAL = {
   email: '',
   password: ''
 }
+
+const INITIAL_FOCUS = {
+  name: false,
+  email: false,
+  password: false
+}
  
 const SignUp = () => {
 
   const [error, setError] = useState(false);
 
-  const { values, errors, focus, handleSubmit, handleChange, handleBlur, handleFocus } = useValidation(STATE_INITIAL, validateSignUp, signUp);
+  const { values, errors, focus, handleSubmit, handleChange, handleBlur, handleFocus } = useValidation(STATE_INITIAL, INITIAL_FOCUS, validateSignUp, signUp);
 
   const { name, email, password } = values;
-
-  // async 
-  function signUp() {
-    console.log('Creando cuenta...')
-    // try {
-    //   await firebase.registrar(name, email, password);
-    //   Router.push('/');
-    // } catch (error) {
-    //   console.error('Hubo un error al crear el usuario ', error.message);
-    //   setError(error.message);
-    // }
+  
+  async function signUp() {    
+    try {
+      await firebase.signup(name, email, password);
+      Router.push('/');
+    } catch (error) {
+      console.error('Hubo un error al crear el usuario ', error.message);
+      setError(error.message);
+    }
   }
 
 

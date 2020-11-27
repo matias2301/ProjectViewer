@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import NavBar from './NavBar';
 import SearchBar from '../ui/SearchBar';
 import CustomButtom from '../ui/CustomButtom';
+import { FirebaseContext } from '../../firebase';
 
 const ContenedorHeader = styled.div`
     max-width: 1200px;
@@ -16,7 +17,7 @@ const ContenedorHeader = styled.div`
     }
 `;
 
-const Logo = styled.p`
+const Logo = styled.a`
     color: var(--orange);
     font-size: 4rem;
     line-height: 0;
@@ -27,7 +28,7 @@ const Logo = styled.p`
 
 const Header = () => {
 
-    const user = false;
+    const { userLogged, firebase } = useContext(FirebaseContext);
 
     return (
         <header
@@ -58,16 +59,17 @@ const Header = () => {
                         align-items: center;
                     `}
                 >
-                    { user ? (
+                    { userLogged ? (
                         <>
                             <p
                                 css = {css `
                                         margin-right: 2rem;
                                     `}
-                            >Admin Panel</p>
+                            >Hi { userLogged.displayName }</p>
         
                             <CustomButtom
                                 bgColor="true"
+                                onClick={() => firebase.closeSession()}
                             >Close Session</CustomButtom>
                         </>
                     ) : (
