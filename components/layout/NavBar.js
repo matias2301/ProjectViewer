@@ -4,17 +4,26 @@ import styled from '@emotion/styled';
 import { FirebaseContext } from '../../firebase';
 
 const Nav = styled.nav`
+    display: flex;    
     padding-left: 2rem;
+    text-align: center;
+    align-self: center;
 
     a{
         font-size: 1.8rem;
-        margin-left: 2rem;
+        margin-left: 2rem;        
         color: var(--grey2);
         font-family: 'PT Sans', sans-serif;
 
         &:last-of-type{
-            margin-right: 0;
+            @media(min-width: 768px) {
+                margin-right: 2rem;
+            }            
         }
+    }
+    margin-bottom: 1rem;  
+    @media (min-width: 768px){       
+        margin-bottom: 0;        
     }
 `;
 
@@ -31,8 +40,8 @@ const NavBar = () => {
                 <a>Most Popular</a>
             </Link>
             { userLogged && 
-                <Link href="/newProduct">
-                    <a>New Product</a>
+                <Link href="/newProject">
+                    <a>New Project</a>
                 </Link>
             }
             

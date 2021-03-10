@@ -8,22 +8,32 @@ import CustomButtom from '../ui/CustomButtom';
 import { FirebaseContext } from '../../firebase';
 
 const ContenedorHeader = styled.div`
+    display: flex;
+    flex: 1;    
+    flex-direction: column;
     max-width: 1200px;
     width: 95%;
     margin: 0 auto;
-    @media (min-width: 768px){
-        display: flex;
-        justify-content: space-between;
+    @media (min-width: 800px){        
+        flex-direction: row;
+        justify-content: space-around;       
     }
 `;
 
 const Logo = styled.a`
+    text-align: 'center';
     color: var(--orange);
-    font-size: 4rem;
-    line-height: 0;
+    font-size: 3rem;    
+    align-self: center;
+    line-height: 3.5rem;
     font-weight: 700px;
     font-family: 'Roboto Slab', serif;
-    margin-right: 2rem;
+    margin-right: 0;
+    margin-bottom: 2rem;  
+    @media (min-width: 768px){        
+        margin-bottom: 0;
+        margin-right: 5rem;        
+    }    
 `;
 
 const Header = () => {
@@ -41,11 +51,16 @@ const Header = () => {
                 <div
                     css = {css `
                         display: flex;
+                        flex-direction: column;
                         align-items: center;
+                        @media (min-width: 768px){        
+                            flex-direction: row;
+                            justify-content: space-around;      
+                        }
                     `}
                 >
                     <Link href="/">
-                        <Logo>Title</Logo>
+                        <Logo>Project Viewer</Logo>
                     </Link>
 
                     <SearchBar />
@@ -56,7 +71,7 @@ const Header = () => {
                 <div
                     css = {css `
                         display: flex;
-                        align-items: center;
+                        flex-wrap: wrap;                
                     `}
                 >
                     { userLogged ? (
@@ -82,7 +97,7 @@ const Header = () => {
                             <Link href="/signUp">
                                 <CustomButtom
                                     bgColor="true"
-                                >Sing Up</CustomButtom>
+                                >Register</CustomButtom>
                             </Link>
                          </>
 

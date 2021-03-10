@@ -14,7 +14,7 @@ const InputSubmit = styled.button`
     width: 3rem;
     display: block;
     background-size: 4rem;
-    background-image: url('/static/img/buscar.png');
+    background-image: url('/static/img/search.png');
     background-repeat: no-repeat;
     position: absolute;
     right: 1rem;
@@ -46,12 +46,16 @@ const SearchBar = () => {
         <form
             css={css`
                 position: relative;
+                margin-bottom: 2rem;  
+                @media (min-width: 768px){        
+                    margin-bottom: 0;        
+                }
             `}
             onSubmit={handleSubmit}
         >
             <InputText
                 type="text"
-                placeholder="Search Products"
+                placeholder="Search Project"
                 onChange={ e => setSearch(e.target.value) }
             />
 

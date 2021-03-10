@@ -6,7 +6,7 @@ import { Form, Field, InputSubmit, Error } from '../components/ui/FormStyles';
 
 import firebase from '../firebase';
 
-// // validaciones
+// validations
 import useValidation from '../hooks/useValidation';
 import validateSignUp from '../validation/validateSignUp';
 
@@ -34,8 +34,8 @@ const SignUp = () => {
     try {
       await firebase.signup(name, email, password);
       Router.push('/');
-    } catch (error) {
-      console.error('Hubo un error al crear el usuario ', error.message);
+    } catch (error) {      
+      console.error('Something went wrong ', error.message);
       setError(error.message);
     }
   }

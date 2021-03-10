@@ -6,7 +6,7 @@ import { Form, Field, InputSubmit, Error } from '../components/ui/FormStyles';
 
 import firebase from '../firebase';
 
-// // validaciones
+// // validations
 import useValidation from '../hooks/useValidation';
 import validateLogin from '../validation/validateLogin';
 
@@ -33,7 +33,7 @@ async function login() {
     await firebase.login(email, password);
     Router.push('/');
   } catch (error) {
-    console.error('Hubo un error al autenticar el usuario ', error.message);
+    console.error('Something went wrong ', error.message);
     setError(error.message);
   }
 }

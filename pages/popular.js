@@ -1,22 +1,22 @@
 import React from 'react';
 import Layout from '../components/layout/Layout';
-import ProductDetail from '../components/layout/productDetail';
-import useProducts from '../hooks/useProducts';
+import ProjectDetail from '../components/layout/projectDetail';
+import useProject from '../hooks/useProject';
 
 const Popular = () => {
 
-  const { products } = useProducts('votes');
+  const { projects } = useProject('votes');
 
   return (
     <div>
       <Layout>
-        <div className="productList">
+        <div className="projectList">
           <div className="content">
             <ul className="bg-white">
-              { products.map( product => (
-                <ProductDetail
-                  key={product.id}
-                  product={product}
+              { projects.map( project => (
+                <ProjectDetail
+                  key={project.id}
+                  project={project}
                 />
               ))}
             </ul>
